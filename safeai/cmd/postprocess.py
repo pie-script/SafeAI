@@ -132,6 +132,7 @@ class ScanPostProcessor:
         excluded_paths = [
             self.args.manifest_path,
             self.args.json_path,
+            self.args.csv_path,
             self.args.html_path,
             self.args.sarif,
             self.args.pr_comment_path,
@@ -432,6 +433,10 @@ class ScanPostProcessor:
         if self.args.json_path:
             from safeai.report.json_report import write_json
             write_json(self.report, self.args.json_path)
+
+        if self.args.csv_path:
+            from safeai.report.csv_report import write_csv
+            write_csv(self.report, self.args.csv_path)
 
         if self.args.html_path:
             from safeai.report.html import write_html

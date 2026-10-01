@@ -2,7 +2,7 @@
 
 Usage::
 
-    safeai scan <directory> [--sarif <path>] [--json <path>] [--html <path>]
+    safeai scan <directory> [--sarif <path>] [--json <path>] [--csv <path>] [--html <path>]
                             [--manifest <path>] [--baseline <path>]
                             [--policy <path>] [--suppressions <path>]
                             [--registry <path> | --no-registry] [--strict-registry]
@@ -49,6 +49,7 @@ def _build_parser():
     scan.add_argument("directory")
     scan.add_argument("--sarif", default="report.sarif")
     scan.add_argument("--json", dest="json_path")
+    scan.add_argument("--csv", dest="csv_path")
     scan.add_argument("--html", dest="html_path")
     scan.add_argument("--architecture", action="store_true", default=True, help="Include architecture diagram in HTML report")
     scan.add_argument("--no-architecture", action="store_false", dest="architecture", help="Omit architecture diagram from HTML report")
